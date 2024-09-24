@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsbhuw5d5tdd3"]
+
+[ext_resource type="Texture2D" uid="uid://632l6ku02t7j" path="res://mobs/Run_Body_292.png" id="1_8vnvh"]
+[ext_resource type="Script" path="res://red_bullet.gd" id="1_lpdr7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc4kx"]
+atlas = ExtResource("1_8vnvh")
+region = Rect2(540, 540, 180, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k772v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc4kx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3opk1"]
+radius = 31.0
+height = 74.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uixai"]
+radius = 35.0
+height = 110.0
+
+[node name="RedBullet" type="CharacterBody2D"]
+script = ExtResource("1_lpdr7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5, -5)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_k772v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3opk1")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-5, -5)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uixai")
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
