@@ -9,4 +9,4 @@ func _process(delta):
 		queue_free()
 
 	if health <=0:
-		get_parent().get_parent().queue.free()
+		get_parent().get_parent().queue_free()

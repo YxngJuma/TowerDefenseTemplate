@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://opwkum8y4wlb"]
+
+[ext_resource type="Script" path="res://RedTowerpanel.gd" id="1_74ou8"]
+[ext_resource type="Texture2D" uid="uid://632l6ku02t7j" path="res://mobs/Run_Body_292.png" id="2_rutcn"]
+
+[node name="RedTowerpanel" type="Panel"]
+custom_minimum_size = Vector2(210, 210)
+offset_right = 210.0
+offset_bottom = 210.0
+script = ExtResource("1_74ou8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(109, 107)
+scale = Vector2(1.28144, 1.31677)
+texture = ExtResource("2_rutcn")
+region_enabled = true
+region_rect = Rect2(0, 0, 167.241, 161.697)
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

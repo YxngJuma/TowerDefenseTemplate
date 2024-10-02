@@ -180,7 +180,7 @@ position = Vector2(93, -193)
 position = Vector2(-79.5, 187.5)
 shape = SubResource("CircleShape2D_qf5gk")
 
-[node name="bulletContainer" type="Node2D" parent="."]
+[node name="BulletContainer" type="Node2D" parent="."]
 position = Vector2(0, -3)
 
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
