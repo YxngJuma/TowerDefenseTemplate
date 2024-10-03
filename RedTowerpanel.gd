@@ -17,7 +17,13 @@ func _on_gui_input(event:InputEvent):
 		#Left click down drag
 		if get_child_count()>1:
 			get_child(1).global_position= mouseposition
-		
+	
+			var mapPath =get_tree().get_root().get_node("Main/TileMap")
+			var tile= mapPath.local_to_map(get_global_mouse_position())
+			currTile= mapPath.get_cell_atlas_coords(0, tile, false)
+			if (currTile == Vector2i(4,5)):
+				get_child(1).get_node("Area").modulate = Color(0,255,0)
+
 	elif event is InputEventMouseButton and event.button_mask == 0:
 		#Left click up
 		if event.global_position.x >=2944:
